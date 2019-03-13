@@ -1,0 +1,1 @@
+Computer Sciences的本质是将人类解决问题的思维过程，解释给计算机。CS关注的事情是能否解决问题和能否更快地解决问题。CS的工具是Data structures和Algorithms。我们使用[Problem Solving with Algorithms and Data Structures](https://runestone.academy/runestone/static/pythonds/index.html)来讲解最基本的数据结构和算法。

@@ -1,0 +1,1 @@
+Markdown是一种文本标记语言，基于markdown，我们可以很容易地表述不同类型的文本：列表，表格等。Github支持markdown，默认会显示每一个文件夹下的README.md。从[Github Markdown教程](https://guides.github.com/features/mastering-markdown/)中，可以学习到markdown的基本知识。
