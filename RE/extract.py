@@ -10,7 +10,7 @@ raw_text = line_list[0]
 qa_list = re.split("[0-9]+\. ", raw_text)
 print(len(qa_list))
 
-res_list = []
+res_set = set()
 for item in qa_list[1:]:
     print(item)
 
@@ -66,16 +66,16 @@ for item in qa_list[1:]:
     explain = item[explain_item.start():]
     print(explain)
 
-    res_list.append((question, candidate_list, answer, explain))
+    res_set.add((question, str(candidate_list), answer, explain))
 
-print(len(res_list))
+print(len(res_set))
 
 with open("res.tsv", "w", encoding="utf8") as w:
-    for item in res_list:
+    for item in res_set:
         question = item[0]
         candidate_list = item[1]
         answer = item[2]
         explain = item[3]
 
-        new_line = question + "\t" + str(candidate_list) + "\t" + answer + "\t" + explain + "\n"
+        new_line = question + "\t" + candidate_list + "\t" + answer + "\t" + explain + "\n"
         w.write(new_line)
