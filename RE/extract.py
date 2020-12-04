@@ -5,7 +5,8 @@ with open("raw.txt", "r", encoding="utf8") as f:
     for line in f:
         line_list.append(line.strip())
 
-raw_text = line_list[0]
+#raw_text = line_list[0]
+raw_text = " ".join(line_list)
 
 qa_list = re.split("[0-9]+\. ", raw_text)
 print(len(qa_list))
