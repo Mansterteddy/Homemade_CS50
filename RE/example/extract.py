@@ -1,4 +1,5 @@
 import re
+import xlsxwriter
 
 line_list = []
 with open("raw.txt", "r", encoding="utf8") as f:
@@ -71,12 +72,21 @@ for item in qa_list[1:]:
 
 print(len(res_set))
 
-with open("res.tsv", "w", encoding="utf8") as w:
-    for item in res_set:
-        question = item[0]
-        candidate_list = item[1]
-        answer = item[2]
-        explain = item[3]
+workbook = xlsxwriter.Workbook("res.xlsx")
+worksheet = workbook.add_worksheet()
 
-        new_line = question + "\t" + candidate_list + "\t" + answer + "\t" + explain + "\n"
-        w.write(new_line)
+row = 0
+
+for item in res_set:
+    question = item[0]
+    candidate_list = item[1]
+    answer = item[2]
+    explain = item[3]
+
+    worksheet.write(row, 0, question)
+    worksheet.write(row, 1, candidate_list)
+    worksheet.write(row, 2, answer)
+    worksheet.write(row, 3, explain)
+    row += 1
+
+workbook.close()
